@@ -3,8 +3,10 @@ var cheerio = require('cheerio');
 var async = require('async');
 var fs = require('fs');
 
-var currentYear = 2015;
-var startingYear = 2009;
+var startingYear = process.argv[2] ? process.argv[2] : 2009;
+var currentYear = process.argv[3] ? process.argv[3] : 2015;
+console.log(startingYear);
+
 var apiUrl = 'http://www.gzepb.gov.cn:81/was5/web/WaterQuality/MonthlyData.jsp';
 
 var dataSet = {
