@@ -2,6 +2,7 @@ var request = require('request');
 var cheerio = require('cheerio');
 var async = require('async');
 var fs = require('fs');
+var _ = require('lodash');
 
 var startingYear = process.argv[2] ? process.argv[2] : 2009;
 var currentYear = process.argv[3] ? process.argv[3] : 2015;
@@ -51,7 +52,7 @@ async.map(queryTime, function(time, callback) {
 	});
 }, function(err, result) {
 	if (err) { console.error(err); }
-	dataSet.result = result;
+	dataSet.result = _.flatten(result);
 	fs.writeFile('data.json', JSON.stringify(dataSet, null, 2), function(err) {
 		if (err) { console.error(err); }
 	});
