@@ -5,7 +5,6 @@ var fs = require('fs');
 
 var startingYear = process.argv[2] ? process.argv[2] : 2009;
 var currentYear = process.argv[3] ? process.argv[3] : 2015;
-console.log(startingYear);
 
 var apiUrl = 'http://www.gzepb.gov.cn:81/was5/web/WaterQuality/MonthlyData.jsp';
 
@@ -53,7 +52,7 @@ async.map(queryTime, function(time, callback) {
 }, function(err, result) {
 	if (err) { console.error(err); }
 	dataSet.result = result;
-	fs.writeFile('data.json', JSON.stringify(dataSet), function(err) {
+	fs.writeFile('data.json', JSON.stringify(dataSet, null, 2), function(err) {
 		if (err) { console.error(err); }
 	});
 });
