@@ -1,0 +1,13 @@
+{
+  "name": "water-quality",
+  "version": "1.0.0",
+  "description": "Extract Guangzhou potable water quality report data from http://www.gzepb.gov.cn:81/was5/web/WaterQuality/MonthlyData.jsp.",
+  "main": "water-quality.js",
+  "author": "Nick Cai",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^0.9.0",
+    "cheerio": "^0.19.0",
+    "request": "^2.55.0"
+  }
+}
